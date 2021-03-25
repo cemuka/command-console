@@ -9,12 +9,12 @@ namespace CommandConsole
 {
     public class Console
     {    
-        private static Dictionary<string, Func<string[], string>> _commands;
+        private static Dictionary<string, Action<string[]>> _commands;
         private static string emptyKey = "empty_or_space";
 
         public void Initialize()
         {
-            _commands = new Dictionary<string, Func<string[], string>>();
+            _commands = new Dictionary<string, Action<string[]>>();
             InitializeAttributes();
             
             var prefab = Resources.Load<GameObject>("ConsoleCanvas");
@@ -48,7 +48,7 @@ namespace CommandConsole
                     {
                         var target = method.DeclaringType;
                         object act = Activator.CreateInstance(target);
-                        var action = (Func<string[], string>) method.CreateDelegate(typeof(Func<string[], string>), act);
+                        var action = (Action<string[]>) method.CreateDelegate(typeof(Action<string[]>), act);
                         
                         var attribute = method.GetCustomAttribute<ConsoleCommandAttribute>();
                         if (attribute != null)
@@ -68,20 +68,20 @@ namespace CommandConsole
             }
         }
 
-        private static string Execute(CommandInfo cmd)
+        private static void Execute(CommandInfo cmd)
         {
             if (cmd.key == emptyKey)
             {
-                return string.Empty;
+                return;
             }
 
             if (_commands.ContainsKey(cmd.key))
             {
-                return _commands[cmd.key](cmd.args);
+                _commands[cmd.key](cmd.args);
             }
             else
             {
-                return "err";
+                Log("err");
             }
         }
 
@@ -107,7 +107,7 @@ namespace CommandConsole
 
         private static void OnInput(string input)
         {
-            Log(Execute(Parse(input)));
+            Execute(Parse(input));
         }
 
 

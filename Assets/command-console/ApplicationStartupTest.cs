@@ -25,8 +25,9 @@ public class ApplicationStartupTest : MonoBehaviour
     }
 
     [ConsoleCommand("welcome")]
-    public string Greet(string[] args)
+    public void Greet(string[] args)
     {
-        return "Greetings, " + args[0];
+        var log = "Greetings, " + args[0];
+        Console.Log(log);
     }
 }
