@@ -39,7 +39,7 @@ namespace CommandConsole
             {
                 var methods = assembly.GetTypes()
                         .SelectMany(t => t.GetMethods())
-                        .Where(m => m.GetCustomAttributes(typeof(ConsoleCommandAttribute), false).Length > 0)
+                        .Where(m => m.GetCustomAttributes(typeof(CommandAttribute), false).Length > 0)
                         .ToArray();
                 
                 if (methods.Length > 0)
@@ -50,7 +50,7 @@ namespace CommandConsole
                         object act = Activator.CreateInstance(target);
                         var action = (Action<string[]>) method.CreateDelegate(typeof(Action<string[]>), act);
                         
-                        var attribute = method.GetCustomAttribute<ConsoleCommandAttribute>();
+                        var attribute = method.GetCustomAttribute<CommandAttribute>();
                         if (attribute != null)
                         {
                             if (string.IsNullOrEmpty(attribute.key) == false && 

@@ -24,10 +24,17 @@ public class ApplicationStartupTest : MonoBehaviour
         }
     }
 
-    [ConsoleCommand("welcome")]
+    [Command("welcome")]
     public void Greet(string[] args)
     {
-        var log = "Greetings, " + args[0];
-        Console.Log(log);
+        if (args != null && args.Length > 1)
+        {
+            var log = "Greetings, " + string.Join(" ", args);
+            Console.Log(log);
+        }
+        else
+        {
+            Console.Log("Err, missing argument!");
+        }
     }
 }

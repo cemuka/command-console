@@ -3,15 +3,15 @@ using System;
 namespace CommandConsole
 {
     [AttributeUsage(AttributeTargets.Method)]
-    public class ConsoleCommandAttribute : Attribute
+    public class CommandAttribute : Attribute
     {
         public string key;
 
-        public ConsoleCommandAttribute()
+        public CommandAttribute()
         {
             
         }
-        public ConsoleCommandAttribute(string key)
+        public CommandAttribute(string key)
         {
             this.key = key;
         }
