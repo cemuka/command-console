@@ -1,6 +1,6 @@
 using System;
 
-namespace CommandConsole
+namespace CommandConsole.Signals
 {
     public static class ConsoleSignals
     {

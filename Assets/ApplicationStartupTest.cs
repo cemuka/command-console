@@ -3,31 +3,28 @@ using UnityEngine;
 
 public class ApplicationStartupTest : MonoBehaviour
 {
-    private Console _console;
-
     private void Start()
     {
-        _console = new Console();
-        _console.Initialize();
+        Console.Initialize();
+        Console.Register("greet", Greet);
     }
 
     private void Update()
     {
         if (Input.GetKey(KeyCode.LeftShift) && Input.GetKeyDown(KeyCode.Tab))
         {
-            _console.Show();
+            Console.Show();
         }
 
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            _console.Hide();
+            Console.Hide();
         }
     }
 
-    [Command("welcome")]
-    public void Greet(string[] args)
+    private void Greet(string[] args)
     {
-        if (args != null && args.Length > 1)
+        if (args != null && args.Length >= 1)
         {
             var log = "Greetings, " + string.Join(" ", args);
             Console.Log(log);

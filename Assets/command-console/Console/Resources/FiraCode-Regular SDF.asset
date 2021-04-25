@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 71c1514a6bd24e1e882cebbe1904ce04, type: 3}
   m_Name: FiraCode-Regular SDF
   m_EditorClassIdentifier: 
-  hashCode: 0
+  hashCode: 1203042231
   material: {fileID: 21358957793110510}
-  materialHashCode: 0
+  materialHashCode: 2001124188
   m_Version: 1.1.0
   m_SourceFontFileGUID: c85c1bae4c37e4b9c90f814c12a9a2ae
   m_SourceFontFile_EditorRef: {fileID: 0}
@@ -5492,9 +5492,9 @@ Material:
     - _OutlineWidth: 0
     - _PerspectiveFilter: 0.875
     - _Reflectivity: 10
-    - _ScaleRatioA: 1
-    - _ScaleRatioB: 1
-    - _ScaleRatioC: 1
+    - _ScaleRatioA: 0.8333333
+    - _ScaleRatioB: 0.6770833
+    - _ScaleRatioC: 0.6770833
     - _ScaleX: 1
     - _ScaleY: 1
     - _ShaderFlags: 0

@@ -1,3 +1,4 @@
+using CommandConsole.Signals;
 using TMPro;
 using UnityEngine;
 
