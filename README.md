@@ -1,6 +1,8 @@
 ![command-console](./images/console.gif)
 ### Command Console
 Inspired by Quantum Console from unity asset store. It looks pretty awesome.
+You should import TMP(Text Mesh Pro) before using.
+
 
 #### Usage
 Simply log any string
@@ -50,3 +52,7 @@ private void Update()
     }
 }
 ```
+
+### LICENSE
+MIT
+Cem Ugur Karacam
