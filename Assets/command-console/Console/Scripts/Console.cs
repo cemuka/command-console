@@ -95,5 +95,10 @@ namespace CommandConsole
                 ConsoleSignals.InvokeLog(message);
             }
         }
+    
+        public static void Log(string message, string color)
+        {
+            Log("<color=\"" + color + "\">"+ message +"</color>");
+        }
     }
 }

@@ -27,11 +27,11 @@ public class ApplicationStartupTest : MonoBehaviour
         if (args != null && args.Length >= 1)
         {
             var log = "Greetings, " + string.Join(" ", args);
-            Console.Log(log);
+            Console.Log(log, "green");
         }
         else
         {
-            Console.Log("Err, missing argument!");
+            Console.Log("Err, missing argument!", "red");
         }
     }
 }
