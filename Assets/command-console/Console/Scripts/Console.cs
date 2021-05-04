@@ -11,15 +11,9 @@ namespace CommandConsole
     public class Console
     {    
         private static Dictionary<string, Action<string[]>> _commands;
-        private static string emptyKey = "empty_or_space";
 
         private static void Execute(CommandInfo cmd)
         {
-            if (cmd.key == emptyKey)
-            {
-                return;
-            }
-
             if (_commands.ContainsKey(cmd.key))
             {
                 _commands[cmd.key](cmd.args);
@@ -32,22 +26,12 @@ namespace CommandConsole
 
         private static CommandInfo Parse(string input)
         {
-            if (string.IsNullOrEmpty(input) == false && string.IsNullOrWhiteSpace(input) == false)
+            var split = new ArraySegment<string>(input.Split(' '));
+            return new CommandInfo()
             {
-                var split = new ArraySegment<string>(input.Split(' '));
-                return new CommandInfo()
-                {
-                    key     = split.ElementAt(0),
-                    args    = split.Skip(1).ToArray<string>()
-                };
-            }
-            else
-            {
-                return new CommandInfo()
-                {
-                    key = emptyKey
-                };
-            }
+                key     = split.ElementAt(0),
+                args    = split.Skip(1).ToArray<string>()
+            };   
         }
 
         private static void OnInput(string input)
@@ -90,10 +74,7 @@ namespace CommandConsole
 
         public static void Log(string message)
         {
-            if (string.IsNullOrEmpty(message) == false && string.IsNullOrWhiteSpace(message) == false)
-            {
-                ConsoleSignals.InvokeLog(message);
-            }
+            ConsoleSignals.InvokeLog(message);   
         }
     
         public static void Log(string message, string color)

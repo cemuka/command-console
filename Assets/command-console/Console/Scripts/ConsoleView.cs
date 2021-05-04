@@ -18,8 +18,11 @@ namespace CommandConsole
 
         private void OnSubmit(string input)
         {
+            if (string.IsNullOrEmpty(input) == false && string.IsNullOrWhiteSpace(input) == false)
+            {
+                ConsoleSignals.InvokeOnInput(input);
+            }
             inputField.ActivateInputField();
-            ConsoleSignals.InvokeOnInput(input);
             inputField.text = "";
         }
 
