@@ -1,7 +1,6 @@
 ![command-console](./images/console.gif)
 ### Command Console
 Inspired by Quantum Console from unity asset store. It looks pretty awesome.
-You should import TMP(Text Mesh Pro) before using.
 
 
 #### Usage
@@ -9,7 +8,7 @@ Simply log any string
 
 ```csharp
 Console.Log("This is the way");
-Console.Log("Also with TMP rich text support for colors", "green");
+Console.Log("Also with text support for colors", "green");
 ```
 
 Just call `Initialize` to setup. It will create the command view from `Resources`.
