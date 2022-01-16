@@ -11,7 +11,7 @@ namespace CommandConsole
 
         public void Init()
         {
-            inputField.onSubmit.AddListener(input => OnSubmit(input));
+            inputField.onEndEdit.AddListener(input => OnSubmit(input));
             ConsoleSignals.OnDisplayEvent   += OnDisplay;
             ConsoleSignals.OnLogEvent       += Log;
         }
