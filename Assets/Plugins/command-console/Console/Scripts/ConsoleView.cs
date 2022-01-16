@@ -1,13 +1,13 @@
 using CommandConsole.Signals;
-using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace CommandConsole
 {
     public class ConsoleView : MonoBehaviour
     {
-        public TMP_Text consoleText;
-        public TMP_InputField inputField;
+        public Text consoleText;
+        public InputField inputField;
 
         public void Init()
         {
@@ -43,7 +43,7 @@ namespace CommandConsole
 
         private void Log(string log)
         {
-            consoleText.text += log + "\n";
+            consoleText.text += log +"\n";
         }
     }
 }
