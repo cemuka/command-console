@@ -36,6 +36,7 @@ namespace CommandConsole
 
         private static void OnInput(string input)
         {
+            Log(input, "green");
             Execute(Parse(input));
         }
 
