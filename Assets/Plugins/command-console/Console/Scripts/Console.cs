@@ -12,6 +12,8 @@ namespace CommandConsole
     {    
         private static Dictionary<string, Action<string[]>> _commands;
 
+        public static bool IsActive { get { return ConsoleSignals.InvokeCheckConsoleActive(); } }
+
         private static void Execute(CommandInfo cmd)
         {
             if (_commands.ContainsKey(cmd.key))

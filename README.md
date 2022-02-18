@@ -40,14 +40,16 @@ Easily show and hide.
 ```csharp
 private void Update()
 {
-    if (Input.GetKey(KeyCode.LeftShift) && Input.GetKeyDown(KeyCode.Tab))
+    if (Input.GetKeyDown(KeyCode.DoubleQuote))
     {
-        Console.Show();
-    }
-
-    if (Input.GetKeyDown(KeyCode.Escape))
-    {
-        Console.Hide();
+        if(Console.IsActive) 
+        {
+            Console.Hide();
+        }
+        else
+        {
+            Console.Show();
+        }
     }
 }
 ```

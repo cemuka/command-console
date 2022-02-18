@@ -1,3 +1,4 @@
+using System;
 using CommandConsole.Signals;
 using UnityEngine;
 using UnityEngine.UI;
@@ -14,6 +15,7 @@ namespace CommandConsole
             inputField.onEndEdit.AddListener(input => OnSubmit(input));
             ConsoleSignals.OnDisplayEvent   += OnDisplay;
             ConsoleSignals.OnLogEvent       += Log;
+            ConsoleSignals.OnCheckConsoleActiveEvent += CheckViewActive;
         }
 
         private void OnSubmit(string input)
@@ -44,6 +46,11 @@ namespace CommandConsole
         private void Log(string log)
         {
             consoleText.text += log +"\n";
+        }
+    
+        private bool CheckViewActive()
+        {
+            return gameObject.activeSelf;
         }
     }
 }
